@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get_it/get_it.dart';
 import '../data/datasource/poi_local_datasource.dart';
 import '../data/datasource/poi_remote_datasource.dart';
-import '../data/poi_repository_impl.dart';
+import '../data/repositories/poi_repository_impl.dart';
 import '../presentation/cubit/poi_cubit.dart';
 
 class DependencyInjector {

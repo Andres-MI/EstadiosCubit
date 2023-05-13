@@ -20,6 +20,9 @@ abstract class PoiLocalDataSource {
   /// Throws an [Exception] if an error occurs during the caching process.
   Future<void> cachePois(PoiListModel poiList);
 
+  ///Delete the locally stored POIs
+  ///
+  ///
   void deletePois();
 }
 

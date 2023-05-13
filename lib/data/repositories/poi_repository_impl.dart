@@ -6,7 +6,7 @@ import 'package:turistic_poi_test/domain/entities/poi.dart';
 import 'package:turistic_poi_test/domain/entities/poi_list.dart';
 import 'package:turistic_poi_test/domain/repositories/poi_repository.dart';
 
-import 'models/poi_model.dart';
+import '../models/poi_model.dart';
 
 class PoiRepositoryImpl implements PoiRepository {
   final PoiRemoteDatasource remoteDataSource;

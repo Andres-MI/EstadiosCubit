@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:turistic_poi_test/presentation/view/alert_dialog.dart';
+import 'package:turistic_poi_test/presentation/widgets/alert_dialog.dart';
 import 'package:turistic_poi_test/presentation/view/poi_detail_view.dart';
 
 import '../../domain/entities/poi.dart';
