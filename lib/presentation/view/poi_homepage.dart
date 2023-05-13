@@ -15,13 +15,7 @@ class PoiHomepage extends StatelessWidget {
         child: BlocBuilder<PoiCubit, PoiState>(
           builder: (context, state) {
             if (state is PoiInitial) {
-              return Center(
-                child: ElevatedButton(
-                    onPressed: () {
-                      context.read<PoiCubit>().getPoiList();
-                    },
-                    child: const Text('Conseguir POI')),
-              );
+              return const InitialButton();
             } else if (state is PoiError) {
               return Center(
                 child: Text('Error: ${state.message}'),
@@ -34,6 +28,42 @@ class PoiHomepage extends StatelessWidget {
               return Container();
             }
           },
+        ),
+      ),
+    );
+  }
+}
+
+class InitialButton extends StatelessWidget {
+  const InitialButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          context.read<PoiCubit>().getPoiList();
+        },
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.blue,
+          padding: const EdgeInsets.symmetric(
+            vertical: 12.0,
+            horizontal: 24.0,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          elevation: 4.0,
+        ),
+        child: const Text(
+          'Conseguir POI',
+          style: TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
