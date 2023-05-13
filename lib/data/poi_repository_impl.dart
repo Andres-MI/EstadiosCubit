@@ -63,4 +63,9 @@ class PoiRepositoryImpl implements PoiRepository {
 
     return PoiListModel(list: listOfPoi);
   }
+
+  @override
+  void deletePoiList() {
+    localDataSource.deletePois();
+  }
 }

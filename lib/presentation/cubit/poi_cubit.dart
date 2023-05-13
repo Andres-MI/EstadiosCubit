@@ -23,15 +23,19 @@ class PoiCubit extends Cubit<PoiState> {
       }
     } catch (e) {
       debugPrint(e.toString());
-      emit(const PoiError('Failed to fetch Pois'));
+      emit(const PoiError('Failed to fetch POIs'));
     }
   }
 
-  // Future<void> savePoiList(PoiList list) async {
-  //   try {
-  //     _repository.savePoiList(list);
-  //   } catch (e) {
-  //     debugPrint(e.toString());
-  //   }
-  // }
+  void deletePoiList() {
+    try{
+      _repository.deletePoiList();
+      emit(PoiInitial());
+    } catch (e) {
+      debugPrint(e.toString());
+      emit(const PoiError('Failed deleting POIs'));
+    }
+
+  }
+
 }

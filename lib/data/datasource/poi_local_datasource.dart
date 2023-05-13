@@ -13,12 +13,14 @@ abstract class PoiLocalDataSource {
   /// Throws an [Exception] if an error occurs during the data retrieval process.
   Future<PoiListModel> getLocalPois();
 
-  /// Caches the provided [poList] of POIs in the local data source.
+  /// Caches the provided [poiList] of POIs in the local data source.
   ///
   /// Returns a [Future] that completes once the caching process is finished.
   ///
   /// Throws an [Exception] if an error occurs during the caching process.
-  Future<void> cachePois(PoiListModel poList);
+  Future<void> cachePois(PoiListModel poiList);
+
+  void deletePois();
 }
 
 class PoiLocalDataSourceImpl implements PoiLocalDataSource {
@@ -50,6 +52,12 @@ class PoiLocalDataSourceImpl implements PoiLocalDataSource {
       return PoiListModel(list: []);
     }
 
+  }
+
+  @override
+  void deletePois() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove(keyParameter);
   }
 
 }
